@@ -49,6 +49,8 @@ def count_repeats(rolls):
             return y*100
         if seen[y] == 4:
             return (y*100)*2
+        if seen[y] == 5:
+            return ((y*100)*2)*2
     return 0
 
 # detect a 1,2,3,4,5 or a 2,3,4,5,6
