@@ -1,11 +1,17 @@
-
+import collections
 
 # straight
 # count repeats
 # count 1, and 5's.
 def calcScore(rolls):
     score = 0
-    score = detect_straight(rolls)
+    if (detect_straight(rolls) == True):
+        print("Straights!")
+        score = 1500
+    else:
+        print("There are no straights")
+    
+    find_missing(rolls)
     if (score > 0):
         return score 
     
@@ -13,8 +19,22 @@ def calcScore(rolls):
 def count_repeats(rolls):
     return 100
 
+def find_missing(lst):
+    print([x for x in range(lst[0], lst[-1]+1) if x not in lst])
+    
+
 # detect a 1,2,3,4,5 or a 2,3,4,5,6
 def detect_straight(rolls):
-    if rolls.count(1) == 1 and rolls.count(2) == 1:
-        return 1500
-    return 0
+    #there can be no straigh if there are duplicates.
+    seen = set()
+    uniq = [x for x in rolls if x not in seen and not seen.add(x)]        
+    if (len(seen) != 5):
+        return False
+
+    #find missing items in a sequence.
+    dups = set()
+    findMissing = [x for x in range(rolls[0], rolls[-1]+1)  if x not in rolls]
+    if (len(findMissing) > 0):
+        return False
+
+    return True
