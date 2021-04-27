@@ -14,6 +14,14 @@ def test_calculate_score_three_sixes():
     score = scoreCalculate.calcScore([6, 6, 6, 3, 2])
     assert score == 600
 
+def test_calculate_score_three_sixes_less_then_five():
+    score = scoreCalculate.calcScore([6, 6, 6, 2])
+    assert score == 600
+
+def test_calculate_score_three_sixes_less_then_four():
+    score = scoreCalculate.calcScore([6, 6, 6])
+    assert score == 600
+
 def test_calculate_score_three_threes():
     score = scoreCalculate.calcScore([2, 2, 3, 3, 3])
     assert score == 300
@@ -33,6 +41,10 @@ def test_calculate_score_three_sixes():
 #calcualte sets of 4
 def test_calculate_score_four_twos():
     score = scoreCalculate.calcScore([2, 2, 4, 2, 2])
+    assert score == 400
+
+def test_calculate_score_four_twos_not_full():
+    score = scoreCalculate.calcScore([2, 2, 2, 2])
     assert score == 400
 
 def test_calculate_score_four_threes():
