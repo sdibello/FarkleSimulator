@@ -11,7 +11,7 @@ def test_just_dice():
 
 #calcualte sets of 3
 def test_calculate_score_three_sixes():
-    score = scoreCalculate.calcScore([6, 6, 6, 3, 2])
+    score = scoreCalculate.calcScore([6, 6, 6, 1, 2])
     assert score == 600
 
 def test_calculate_score_three_sixes_less_then_five():

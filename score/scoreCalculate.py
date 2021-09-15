@@ -13,8 +13,11 @@ def calcScore(rolls):
     repeatScore = count_repeats(rolls)
     score = add_score(repeatScore, score)
     # count 1, and 5's.
-
-    return score 
+    fives = rolls.count(5)
+    ones = rolls.count(1)
+    fiftenscore = (fives * 50) + (ones * 100)
+    score = add_score(score, fiftenscore)
+    return score
 
 
 
