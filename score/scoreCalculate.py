@@ -1,9 +1,7 @@
 import collections
 
-SCORE_STRAIGHT = 1500
-
 # straight
-# count repeats
+# count sets
 # count 1, and 5's.
 def calcScore(rolls):
     score = 0
@@ -11,10 +9,14 @@ def calcScore(rolls):
     # find straights first
     straightScore = detect_straight(rolls) 
     score = straightScore
-    #detect duplicates   
+    #detect sets   
     repeatScore = count_repeats(rolls)
     score = add_score(repeatScore, score)
+    # count 1, and 5's.
+
     return score 
+
+
 
 def add_score(existing, new):
     if (new>0):
