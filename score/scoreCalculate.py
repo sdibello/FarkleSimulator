@@ -47,7 +47,9 @@ def count_repeats(rolls):
     
     for y in dupes:
         if y == 1:
-            if seen[y] == 3:
+            if seen[y] == 2:
+                return 0
+            elif seen[y] == 3:
                 return Scores.THREE_ONES
             elif seen[y] == 4:
                 return Scores.THREE_ONES * 2
