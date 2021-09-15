@@ -10,7 +10,7 @@ def test_just_dice():
     assert len(ds) > 0
 
 #calcualte sets of 3
-def test_calculate_score_three_sixes():
+def test_calculate_score_three_sixes_plus():
     score = scoreCalculate.calcScore([6, 6, 6, 1, 2])
     assert score == 600
 
@@ -64,6 +64,10 @@ def test_calculate_score_four_sixes():
     assert score == 1200
 
 #calcualte sets of 5
+def test_calculate_score_five_ones():
+    score = scoreCalculate.calcScore([1,1,1,1,1])
+    assert score == 3000
+
 def test_calculate_score_five_twos():
     score = scoreCalculate.calcScore([2,2,2,2,2])
     assert score == 800
@@ -80,7 +84,7 @@ def test_calculate_score_five_fives():
     score = scoreCalculate.calcScore([5,5,5,5,5])
     assert score == 2000
 
-def test_calculate_score_five_twos():
+def test_calculate_score_five_sixes():
     score = scoreCalculate.calcScore([6,6,6,6,6])
     assert score == 2400
 
@@ -89,7 +93,7 @@ def test_calculate_score_five_twos():
 #others
 def test_calculate_score_non_straigh():
     score = scoreCalculate.calcScore([1, 4, 2, 3, 6])
-    assert score == 0
+    assert score == 100
 
 def test_calculate_score_straigh_one_five():
     score = scoreCalculate.calcScore([1, 4, 2, 3, 5])
@@ -97,11 +101,12 @@ def test_calculate_score_straigh_one_five():
 
 def test_calcualte_score_nothing():
     score = scoreCalculate.calcScore([3, 5, 2, 3, 2])
-    assert score == 0
+    assert score == 50
 
 def test_calcualte_score_nothing_two():
     score = scoreCalculate.calcScore([1, 5, 2, 3, 2])
+    assert score == 150
+
+def test_calcualte_score_nothing_three():
+    score = scoreCalculate.calcScore([4, 6, 2, 3, 2])
     assert score == 0
-
-
-

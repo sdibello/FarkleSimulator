@@ -1,4 +1,11 @@
 import collections
+from .scoreSet import scoreSet
+
+class Scores:
+    THREE_ONES = 1000
+    STRAIGHT = 1500
+    ONE = 100
+    FIVE = 50
 
 # straight
 # count sets
@@ -7,18 +14,15 @@ def calcScore(rolls):
     score = 0
     
     # find straights first
-    straightScore = detect_straight(rolls) 
-    score = straightScore
+    if  detect_straight(rolls): 
+        return Scores.STRAIGHT
     #detect sets   
     repeatScore = count_repeats(rolls)
     score = add_score(repeatScore, score)
     # count 1, and 5's.
-    fives = rolls.count(5)
-    ones = rolls.count(1)
-    fiftenscore = (fives * 50) + (ones * 100)
-    score = add_score(score, fiftenscore)
-    return score
+    score = add_score(score, count_singles(rolls))
 
+    return score
 
 
 def add_score(existing, new):
@@ -44,11 +48,11 @@ def count_repeats(rolls):
     for y in dupes:
         if y == 1:
             if seen[y] == 3:
-                return 1000
+                return Scores.THREE_ONES
             elif seen[y] == 4:
-                return 2000
+                return Scores.THREE_ONES * 2
             else:
-                return 4000
+                return ((Scores.THREE_ONES*2)*2)
 
         if seen[y] == 3:
             return y*100
@@ -57,6 +61,11 @@ def count_repeats(rolls):
         if seen[y] == 5:
             return ((y*100)*2)*2
     return 0
+
+def count_singles(rolls):
+    fives = rolls.count(5)
+    ones = rolls.count(1)    
+    return (fives * Scores.FIVE) + (ones * Scores.ONE) 
 
 # detect a 1,2,3,4,5 or a 2,3,4,5,6
 def detect_straight(rolls):
@@ -71,4 +80,4 @@ def detect_straight(rolls):
     if (len(findMissing) > 0):
         return False
 
-    return 1500
+    return True
