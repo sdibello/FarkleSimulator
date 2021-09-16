@@ -36,6 +36,7 @@ def count_repeats(rolls):
     seen = {}
     dupes = []
     scored_dice = []
+    points = 0
     remaining_dice = rolls
 
     #find dupes, and how many times it's seen.
@@ -50,39 +51,53 @@ def count_repeats(rolls):
     for y in dupes:
         # Do Processing for 1s, cause they are different then other numbers.
         if y == 1:
-            if seen[y] == 3:
+            if seen[y] == 2:
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
+                points = Scores.ONE*2
+            elif seen[y] == 3:
                 dicescore = Scores.THREE_ONES
                 scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
                 scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
                 scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
-                print(scored_dice)
-                print(remaining_dice)
-                return dicescore
+                points = dicescore
             elif seen[y] == 4:
                 scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
                 scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
                 scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
                 scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
-                print(scored_dice)
-                print(remaining_dice)
-                return Scores.THREE_ONES * 2
-            else:
+                points = Scores.THREE_ONES * 2
+            elif seen[y] == 5: 
                 scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
                 scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
                 scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
                 scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
                 scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
-                print(scored_dice)
-                print(remaining_dice)
-                return ((Scores.THREE_ONES*2)*2)
+                points = ((Scores.THREE_ONES*2)*2)
+        else:
+            if seen[y] == 3:
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
+                points = y*100
+            elif seen[y] == 4:
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
+                points = (y*100)*2
+            elif seen[y] == 5:
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
+                points = ((y*100)*2)*2
 
-        if seen[y] == 3:
-            return y*100
-        if seen[y] == 4:
-            return (y*100)*2
-        if seen[y] == 5:
-            return ((y*100)*2)*2
-    return 0
+    print(scored_dice)
+    print(remaining_dice)
+
+    return points
 
 def count_singles(rolls):
     fives = rolls.count(5)

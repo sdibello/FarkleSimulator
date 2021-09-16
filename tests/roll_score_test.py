@@ -11,11 +11,11 @@ def test_just_dice():
 
 #calcualte sets of 3
 def test_calculate_score_three_sixes_plus():
-    score = scoreCalculate.calcScore([6, 6, 6, 1, 2])
+    score = scoreCalculate.calcScore([6, 6, 6, 4, 2])
     assert score == 600
 
 def test_calculate_score_three_sixes_less_then_five():
-    score = scoreCalculate.calcScore([6, 6, 6, 5])
+    score = scoreCalculate.calcScore([6, 6, 6, 2])
     assert score == 600
 
 def test_calculate_score_three_sixes_less_then_four():
@@ -23,20 +23,20 @@ def test_calculate_score_three_sixes_less_then_four():
     assert score == 600
 
 def test_calculate_score_three_threes():
-    score = scoreCalculate.calcScore([2, 1, 3, 3, 3])
+    score = scoreCalculate.calcScore([2, 4, 3, 3, 3])
     assert score == 300
 
 def test_calculate_score_three_fours():
-    score = scoreCalculate.calcScore([1, 4, 4, 3, 4])
+    score = scoreCalculate.calcScore([2, 4, 4, 3, 4])
     assert score == 400
 
 def test_calculate_score_three_fives():
-    score = scoreCalculate.calcScore([1, 4, 5, 5, 5])
+    score = scoreCalculate.calcScore([2, 4, 5, 5, 5])
     assert score == 500
 
 def test_calculate_score_three_sixes():
     score = scoreCalculate.calcScore([1, 6, 5, 6, 6])
-    assert score == 600
+    assert score == 750
 
 #calcualte sets of 4
 def test_calculate_score_four_twos():
@@ -88,7 +88,17 @@ def test_calculate_score_five_sixes():
     score = scoreCalculate.calcScore([6,6,6,6,6])
     assert score == 2400
 
+def test_calculate_score_two_fives():
+    score = scoreCalculate.calcScore([5,5])
+    assert score == 100
 
+def test_calculate_score_one_five():
+    score = scoreCalculate.calcScore([5,5])
+    assert score == 100
+
+def test_calculate_score_one_one():
+    score = scoreCalculate.calcScore([5,5])
+    assert score == 100
 
 #others
 def test_calculate_score_non_straigh():
@@ -114,3 +124,20 @@ def test_calcualte_score_nothing():
 def test_calcualte_score_one_one_five():
     score = scoreCalculate.calcScore([1, 1, 3, 5, 2])
     assert score == 250
+
+def test_calcualte_score_one_one_one_five():
+    score = scoreCalculate.calcScore([1, 1, 3, 5, 1])
+    assert score == 1050
+
+def test_calcualte_score_three_three_three_five():
+    score = scoreCalculate.calcScore([3, 2, 3, 5, 3])
+    assert score == 350
+
+def test_calcualte_score_3_3_3_5_1():
+    score = scoreCalculate.calcScore([3, 1, 3, 5, 3])
+    assert score == 450
+
+def test_calcualte_score_1_1_5():
+    score = scoreCalculate.calcScore([1, 1, 3, 5, 3])
+    assert score == 250
+
