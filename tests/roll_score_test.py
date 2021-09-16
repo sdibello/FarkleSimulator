@@ -66,7 +66,7 @@ def test_calculate_score_four_sixes():
 #calcualte sets of 5
 def test_calculate_score_five_ones():
     score = scoreCalculate.calcScore([1,1,1,1,1])
-    assert score == 3000
+    assert score == 4000
 
 def test_calculate_score_five_twos():
     score = scoreCalculate.calcScore([2,2,2,2,2])

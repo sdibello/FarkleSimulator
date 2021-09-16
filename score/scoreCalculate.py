@@ -104,9 +104,14 @@ def count_repeats(rolls):
     return points
 
 def count_singles(rolls):
+    points = 0
     fives = rolls.count(5)
     ones = rolls.count(1)    
-    return (fives * Scores.FIVE) + (ones * Scores.ONE) 
+    if fives <= 2:
+        points = fives * Scores.FIVE
+    if ones <= 2:
+        points = points + (ones * Scores.ONE)
+    return points
 
 # detect a 1,2,3,4,5 or a 2,3,4,5,6
 def detect_straight(rolls):
