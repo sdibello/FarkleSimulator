@@ -128,7 +128,7 @@ def test_calculate_score_1_1():
 def test_calculate_score_1_5():
     score = scoreCalculate.calcScore([1,5])
     assert score == (150, [5, 1], [])
-    
+
 #others
 def test_calculate_score_non_straigh():
     score = scoreCalculate.calcScore([1, 4, 2, 3, 6])
