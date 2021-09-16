@@ -88,6 +88,10 @@ def test_calculate_score_five_fours():
     score = scoreCalculate.calcScore([4,4,4,4,4])
     assert score == 1600
 
+def test_calculate_score_4_fours():
+    score = scoreCalculate.calcScore([4,4,4,4])
+    assert score == 800
+
 def test_calculate_score_five_fives():
     score = scoreCalculate.calcScore([5,5,5,5,5])
     assert score == 2000
