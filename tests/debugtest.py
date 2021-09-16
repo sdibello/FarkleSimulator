@@ -9,7 +9,7 @@ from score import scoreCalculate
 #score = scoreCalculate.calcScore([6, 3, 2, 4, 5])
 #print(score)
 
-score = scoreCalculate.calcScore([1, 1, 3, 5, 2])
+score = scoreCalculate.calcScore([1, 1, 1, 5, 2])
 print(score)
 
 

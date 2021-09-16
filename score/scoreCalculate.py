@@ -35,6 +35,8 @@ def add_score(existing, new):
 def count_repeats(rolls):
     seen = {}
     dupes = []
+    scored_dice = []
+    remaining_dice = rolls
 
     #find dupes, and how many times it's seen.
     for x in rolls:
@@ -46,14 +48,32 @@ def count_repeats(rolls):
             seen[x] += 1
     
     for y in dupes:
+        # Do Processing for 1s, cause they are different then other numbers.
         if y == 1:
-            if seen[y] == 2:
-                return 0
-            elif seen[y] == 3:
-                return Scores.THREE_ONES
+            if seen[y] == 3:
+                dicescore = Scores.THREE_ONES
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
+                print(scored_dice)
+                print(remaining_dice)
+                return dicescore
             elif seen[y] == 4:
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
+                print(scored_dice)
+                print(remaining_dice)
                 return Scores.THREE_ONES * 2
             else:
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
+                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
+                print(scored_dice)
+                print(remaining_dice)
                 return ((Scores.THREE_ONES*2)*2)
 
         if seen[y] == 3:
