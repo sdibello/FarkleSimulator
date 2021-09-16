@@ -12,9 +12,13 @@ class Scores:
 # count 1, and 5's.
 def calcScore(rolls):
     score = 0
+    scored_dice = []
+    remaining_dice = rolls
     
     # find straights first
-    if  detect_straight(rolls): 
+    if  detect_straight(rolls):
+        scored_dice = rolls
+        remaining_dice = [] 
         return Scores.STRAIGHT
     #detect sets   
     repeatScore = count_repeats(rolls)
