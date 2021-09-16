@@ -55,6 +55,15 @@ def test_calculate_score_3_2s():
     score = scoreCalculate.calcScore([2, 2, 2])
     assert score == (200, [2, 2, 2], [])
 
+def test_calculate_score_2_2s():
+    score = scoreCalculate.calcScore([2, 2])
+    assert score == (0, [], [2, 2])
+
+def test_calculate_score_1_2s():
+    score = scoreCalculate.calcScore([2])
+    assert score == (0, [], [2])
+
+
 def test_calculate_score_four_threes():
     score = scoreCalculate.calcScore([3, 2, 3, 3, 3])
     assert score ==  (600, [3, 3, 3, 3], [2])
@@ -119,8 +128,7 @@ def test_calculate_score_1_1():
 def test_calculate_score_1_5():
     score = scoreCalculate.calcScore([1,5])
     assert score == (150, [5, 1], [])
-
-
+    
 #others
 def test_calculate_score_non_straigh():
     score = scoreCalculate.calcScore([1, 4, 2, 3, 6])
