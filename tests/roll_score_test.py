@@ -22,6 +22,10 @@ def test_calculate_score_three_sixes_less_then_four():
     score = scoreCalculate.calcScore([6, 6, 6])
     assert score == 600
 
+def test_calculate_score_2_sixes():
+    score = scoreCalculate.calcScore([6, 6])
+    assert score == 0
+
 def test_calculate_score_three_threes():
     score = scoreCalculate.calcScore([2, 4, 3, 3, 3])
     assert score == 300
@@ -46,6 +50,10 @@ def test_calculate_score_four_twos():
 def test_calculate_score_four_twos_not_full():
     score = scoreCalculate.calcScore([2, 2, 2, 2])
     assert score == 400
+
+def test_calculate_score_3_2s():
+    score = scoreCalculate.calcScore([2, 2, 2])
+    assert score == 200
 
 def test_calculate_score_four_threes():
     score = scoreCalculate.calcScore([3, 2, 3, 3, 3])
@@ -93,12 +101,21 @@ def test_calculate_score_two_fives():
     assert score == 100
 
 def test_calculate_score_one_five():
-    score = scoreCalculate.calcScore([5,5])
+    score = scoreCalculate.calcScore([5])
+    assert score == 5
+
+def test_calculate_score_1():
+    score = scoreCalculate.calcScore([1])
     assert score == 100
 
-def test_calculate_score_one_one():
-    score = scoreCalculate.calcScore([5,5])
-    assert score == 100
+def test_calculate_score_1_1():
+    score = scoreCalculate.calcScore([1,1])
+    assert score == 200
+
+def test_calculate_score_1_5():
+    score = scoreCalculate.calcScore([1,5])
+    assert score == 150
+
 
 #others
 def test_calculate_score_non_straigh():
