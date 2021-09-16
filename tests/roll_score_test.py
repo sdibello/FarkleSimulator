@@ -106,7 +106,7 @@ def test_calculate_score_two_fives():
 
 def test_calculate_score_one_five():
     score = scoreCalculate.calcScore([5])
-    assert score == 5
+    assert score == 50
 
 def test_calculate_score_1():
     score = scoreCalculate.calcScore([1])
