@@ -1,6 +1,7 @@
 
 class Player:
-    def __init__(self, name, handlimit):
+    def __init__(self, name, handlimit, handlimitdice):
         self.name = name
-        self.handlimit = handlimit
+        self.passedHandlimitScore = handlimit
+        self.passedhandimitDice = handlimitdice
         self.score = 0

@@ -7,10 +7,10 @@ class FarkleGame:
         self.__dict__.update(kwargs)
         self.winning_score = 10000
         self.current_highscore = 0
-        steve = Player('Steve', 300)
-        paul = Player('Paul', 450)
-        jerry = Player('Jerry', 250)
-        tina = Player('Tina', 350)
+        steve = Player('Steve', 300, 2)
+        paul = Player('Paul', 450, 2)
+        jerry = Player('Jerry', 250, 3)
+        tina = Player('Tina', 350, 3)
         #steve = object(name = 'Steve', handlimit = '300', order=1, BigFatFarkle=0, Farkle=0, open=False)
         #paul = object(name = 'Paul', handlinit = '500', order=2, BigFatFarkle=0, Farkle=0, open=False)
         #jerry = object(name = 'Jerry', handlinit = '250', order=3, BigFatFarkle=0, Farkle=0, open=False)
