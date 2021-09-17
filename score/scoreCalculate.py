@@ -127,8 +127,12 @@ def detect_straight(rolls):
         return False
 
     #find gaps in a sequence. if there are gaps, then there is no sequence
-    findMissing = [x for x in range(rolls[0], rolls[-1]+1)  if x not in rolls]
-    if (len(findMissing) > 0):
-        return False
+    #findMissing = [x for x in range(rolls[0], rolls[-1]+1)  if x not in rolls]
+    #if (len(findMissing) > 0):
+    #    return False
 
-    return True
+    result = all(elem in rolls for elem in [2,3,4,5,6])
+    if result == False:
+        result = all(elem in rolls for elem in [1,2,3,4,5])
+    
+    return result

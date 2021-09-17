@@ -177,12 +177,16 @@ def test_calcualte_score_1_1_5():
 
 def test_calcualte_score_weird_straight():
     score = scoreCalculate.calcScore([4, 1, 5, 6, 3])
-    assert score == (0, [],  [4, 1, 5, 6, 3])
+    assert score == (150, [5, 1], [4, 6, 3])
 
 def test_calcualte_score_weird_two_straight():
     score = scoreCalculate.calcScore([4, 1, 5, 6, 2])
-    assert score == (0, [],  [4, 1, 5, 6, 2])
+    assert score == (150, [5, 1], [4, 6, 2])
 
 def test_calcualte_score_weird_three_straight():
     score = scoreCalculate.calcScore([3, 1, 5, 6, 2])
-    assert score == (0, [],  [3, 1, 5, 6, 2])
+    assert score == (150, [5, 1], [3, 6, 2])
+
+def test_calcualte_score_weird_four_straight():
+    score = scoreCalculate.calcScore([6, 3, 5, 4, 2])
+    assert score == (1500, [6, 3, 5, 4, 2], [])
