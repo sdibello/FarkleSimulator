@@ -10,6 +10,8 @@
     6. log score
     7. pass
 
+    1. Enable running with minimal logging to screen
+    2. Enable mulitple games in serial ( i.e run 100 games)
 
     figure out how to store so I can run AI on it.
     End Game - relist players once someone has decided to end the game
