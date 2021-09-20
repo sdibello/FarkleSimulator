@@ -7,6 +7,7 @@ class FarkleGame:
         self.__dict__.update(kwargs)
         self.winning_score = 10000
         self.current_highscore = 0
+        self.rounds = 0
         steve = Player('Steve', 300, 2, 3)
         paul = Player('Paul', 450, 2, 2)
         jerry = Player('Jerry', 250, 3, 3)
@@ -27,3 +28,10 @@ class FarkleGame:
                 current_highscore = player.score
         self.current_highscore = current_highscore
         return self.current_highscore
+    
+    def print_scores(self):
+        newlist = sorted(self.players, key=lambda x: x.score, reverse=True)
+        print(" ----------- Round {0} ------------- ".format(self.rounds))
+        for p in newlist:
+            print("{0} has {1} ".format(p.name, p.score))
+        print(" ----------------------------------- ".format(self.rounds))

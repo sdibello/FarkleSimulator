@@ -65,7 +65,13 @@ def gameloop(game):
                 else:
                     reRollFlag = False
 
-        game.calc_highest_score()
+        # every round hits here.
+        basic_round_end(game)
+
+def basic_round_end(game):
+    game.rounds += 1
+    game.print_scores()
+    game.calc_highest_score()
 
 def turn_roll(game):
     # comming soon
