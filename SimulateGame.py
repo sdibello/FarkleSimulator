@@ -49,7 +49,7 @@ def gameloop(game):
                 else:
                     #Player score roll-up , dice remaining, score pass-along
                     player_turn_score = player_turn_score + roll_score
-                    print("-- Score total - {0} ({1}) on {2}".format(str(player_turn_score), str(player.score), str(activeRolls[1])))
+                    print("-- Score total - {0}-{1}-{2} on {3}".format(str(roll_score), str(player_turn_score), str(player.score), str(activeRolls[1])))
                     passedScore = player_turn_score
                     passedDice = activeRolls[2]
 
