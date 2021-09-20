@@ -36,3 +36,16 @@ class FarkleGame:
         for p in newlist:
             print("{0} has {1} ".format(p.name, p.score))
         print(" ----------------------------------- ".format(self.rounds))
+
+    def game_turn_end(self):
+        # TODO
+        #when a player turn ends.  
+        # 1. - check high score, and if win , start endgame
+        # 2. - 
+        print("turn end")
+
+    def game_turn_begin(self):
+        #when a player turn begins.  
+        # TODO
+        # 1. move roll/pass decision here so it can be tested.
+        print("turn debgin")
