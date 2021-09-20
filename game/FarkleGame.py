@@ -30,6 +30,7 @@ class FarkleGame:
         return self.current_highscore
     
     def print_scores(self):
+        #creating a new list here, to maintain the order of players in the original list.
         newlist = sorted(self.players, key=lambda x: x.score, reverse=True)
         print(" ----------- Round {0} ------------- ".format(self.rounds))
         for p in newlist:
