@@ -8,6 +8,11 @@ class Player:
         self.FarkleCount = 0
         self.BFFarkleCount = 0
         self.score = 0
+        self.passToBrackets = []
+
+
+    def load_passToBrackets(self, brackets):
+        self.passToBrackets = brackets
 
     def player_turn_end(self):
         # TODO
