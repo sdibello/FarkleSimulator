@@ -20,33 +20,41 @@ def load_normal_player():
     pytest.normal_player = p
 
 def test_judge_normal_150(load_normal_player):
-    result = pytest.normal_player.player_judge_pass(150, 3)
+    result = pytest.normal_player.player_judge_accept_passed(150, 3)
     assert result == False
 
 def test_judge_normal_300(load_normal_player):
-    result = pytest.normal_player.player_judge_pass(300, 3)
+    result = pytest.normal_player.player_judge_accept_passed(300, 3)
     assert result == False
 
 def test_judge_normal_350(load_normal_player):
-    result = pytest.normal_player.player_judge_pass(350, 4)
+    result = pytest.normal_player.player_judge_accept_passed(350, 4)
     assert result == True
 
 def test_judge_normal_400(load_normal_player):
-    result = pytest.normal_player.player_judge_pass(400, 3)
+    result = pytest.normal_player.player_judge_accept_passed(400, 3)
     assert result == True
 
 def test_judge_normal_550(load_normal_player):
-    result = pytest.normal_player.player_judge_pass(550, 2)
+    result = pytest.normal_player.player_judge_accept_passed(550, 2)
     assert result == True
 
 def test_judge_normal_550_One(load_normal_player):
-    result = pytest.normal_player.player_judge_pass(550, 1)
+    result = pytest.normal_player.player_judge_accept_passed(550, 1)
     assert result == False
 
 def test_judge_normal_900(load_normal_player):
-    result = pytest.normal_player.player_judge_pass(900, 2)
+    result = pytest.normal_player.player_judge_accept_passed(900, 2)
     assert result == True
 
 def test_judge_normal_900(load_normal_player):
-    result = pytest.normal_player.player_judge_pass(1100, 1)
+    result = pytest.normal_player.player_judge_accept_passed(1100, 1)
     assert result == True
+
+def test_judge_normal_200_2(load_normal_player):
+    result = pytest.normal_player.player_judge_accept_passed(200, 2)
+    assert result == False
+
+def test_judge_normal_300_1(load_normal_player):
+    result = pytest.normal_player.player_judge_accept_passed(200, 2)
+    assert result == False

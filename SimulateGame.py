@@ -5,30 +5,31 @@ from score.scoreCalculate import *
 import sys
 
 
+
+
 def gameloop(game):
     #main game loop
     passedScore = 0
-    passedDice = []
     turnRolls = []
+    player_turn_score = 0
+    passedDice = 5
     while game.current_highscore < 10000:
 
         #players loop
         for player in game.players:
-            player_turn_score = 0
-            diceToRoll = 5
             reRollFlag = True
-            print("turn for " + player.name + " < passed " + str(len(passedDice)) + "-" + str(passedScore)  )
+            print("turn for " + player.name + " < passed " + str(passedDice) + "-" + str(passedScore)  )
 
-            if passedScore >= player.passedHandlimitScore:
+            acceptPassedFlag = player.player_judge_accept_passed(passedScore, passedDice)
+            if acceptPassedFlag:
                 player_turn_score = passedScore
-                diceToRoll = len(passedDice)
-                if len(passedDice) == 0:
-                    diceToRoll = 5
+            else:
+                player_turn_score = 0
+                passedDice = 5
             
             #turn loop
             while (reRollFlag):
-
-                turnRolls = rollDice(diceToRoll)
+                turnRolls = rollDice(passedDice)
                 print("-- " + str(turnRolls))
 
                 activeRolls = calcScore(turnRolls)  ## score, scored-dice, remaining-dice
@@ -41,21 +42,21 @@ def gameloop(game):
                 # Farkle Detection and Resolution
                 # Make a function so it's testable
                 if (roll_scored_dice == 0):
-                    if diceToRoll == 5:
+                    if passedDice == 5:
                         player.BFFarkleCount += 1
                         print("-- !!!!!!! Big Fat Farkle - (" + str(player.BFFarkleCount) + ")" )
                     else:
                         player.FarkleCount += 1
                         print("-- !!!!!!! Farkle - (" + str(player.FarkleCount) + ")" )
                     player_turn_score = 0
-                    passedDice = [5,5,5,5,5]
+                    passedDice = 5
                     passedScore = 0
                 else:
                     #Player score roll-up , dice remaining, score pass-along
                     player_turn_score = player_turn_score + roll_score
                     print("-- Score total - {0}-{1}-{2} on {3}".format(str(roll_score), str(player_turn_score), str(player.score), str(activeRolls[1])))
                     passedScore = player_turn_score
-                    passedDice = activeRolls[2]
+                    passedDice = len(activeRolls[2])
 
                 #TODO MVP Notes
                 # 1. decide to keep passed or reset
@@ -75,18 +76,17 @@ def gameloop(game):
 
                 # roll pass / reroll decision 
                 # make a function so it's testable
-                if (len(passedDice) == 0) and (passedScore > 0):
+                if (passedDice == 0) and (passedScore > 0):
                     reRollFlag = True
                     diceToRoll = 5
-                elif (len(passedDice) == 5) and (passedScore == 0):
+                elif (passedDice == 5) and (passedScore == 0):
                     reRollFlag = False
-                elif (len(passedDice)) < player.OutPassDiceLimit:
+                elif passedDice < player.OutPassDiceLimit:
                     reRollFlag = False
                     player.score = player.score + player_turn_score
                     print("> score " + str(player_turn_score) + " for a total of " + str(player.score))
-                elif (len(passedDice)) >= player.OutPassDiceLimit:
+                elif passedDice >= player.OutPassDiceLimit:
                     reRollFlag = True
-                    diceToRoll = len(passedDice)
                 else:
                     reRollFlag = False
 

@@ -1,6 +1,7 @@
 from game.Player import Player
 from dice.dice import *
 from score.scoreCalculate import *
+from game.score_bracket import score_bracket
 
 class FarkleGame:
     players = []
@@ -14,14 +15,27 @@ class FarkleGame:
         paul = Player('Paul', 450, 2, 2)
         jerry = Player('Jerry', 250, 3, 3)
         tina = Player('Tina', 350, 3, 2)
-        #steve = object(name = 'Steve', handlimit = '300', order=1, BigFatFarkle=0, Farkle=0, open=False)
-        #paul = object(name = 'Paul', handlinit = '500', order=2, BigFatFarkle=0, Farkle=0, open=False)
-        #jerry = object(name = 'Jerry', handlinit = '250', order=3, BigFatFarkle=0, Farkle=0, open=False)
-        #ina = object(name = 'Tina', handlimit = '350', order=4, BigFatFarkle=0, Farkle=0, open=False)
+
+        one = score_bracket(250,350,4)
+        two = score_bracket(400,500,3)
+        three = score_bracket(550,850,2)
+        four = score_bracket(900,99999,1)
+        steve.passToBrackets.append(one)
+        steve.passToBrackets.append(two)
+        steve.passToBrackets.append(three)
+        steve.passToBrackets.append(four)
+        steve.passToBrackets = paul.passToBrackets
+        steve.passToBrackets = jerry.passToBrackets
+        steve.passToBrackets = tina.passToBrackets
+
+
         self.players.append(steve)
         self.players.append(paul)
         self.players.append(jerry)
         self.players.append(tina)
+
+
+
 
     def calc_highest_score(self):
         current_highscore = 0

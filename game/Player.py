@@ -27,7 +27,7 @@ class Player:
         # 1. move roll/pass decision here so it can be tested.
         print("turn debgin")
 
-    def player_judge_pass(self, score, available_dice):
+    def player_judge_accept_passed(self, score, available_dice):
         for b in self.passToBrackets:
             if score >= b.low_score and available_dice >= b.available_dice:
                 return True
