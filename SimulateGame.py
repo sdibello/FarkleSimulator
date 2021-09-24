@@ -4,12 +4,15 @@ from dice.dice import rollDice
 from score.scoreCalculate import *
 import sys
 
+
 def gameloop(game):
     #main game loop
+    passedScore = 0
+    passedDice = []
+    turnRolls = []
     while game.current_highscore < 10000:
-        passedDice = []
-        turnRolls = []
-        passedScore = 0
+
+        #players loop
         for player in game.players:
             player_turn_score = 0
             diceToRoll = 5
@@ -22,6 +25,7 @@ def gameloop(game):
                 if len(passedDice) == 0:
                     diceToRoll = 5
             
+            #turn loop
             while (reRollFlag):
 
                 turnRolls = rollDice(diceToRoll)

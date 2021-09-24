@@ -21,3 +21,11 @@ class Player:
         # TODO
         # 1. move roll/pass decision here so it can be tested.
         print("turn debgin")
+
+    def player_judge_pass(self, score, available_dice):
+        if score > self.passedHandlimitScore:
+            return True
+        elif available_dice >= self.passedhandimitDice:
+            return True
+        else:
+            return False
