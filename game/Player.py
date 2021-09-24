@@ -28,9 +28,7 @@ class Player:
         print("turn debgin")
 
     def player_judge_pass(self, score, available_dice):
-        if score > self.passedHandlimitScore:
-            return True
-        elif available_dice >= self.passedhandimitDice:
-            return True
-        else:
-            return False
+        for b in self.passToBrackets:
+            if score >= b.low_score and available_dice >= b.available_dice:
+                return True
+        return False

@@ -25,12 +25,28 @@ def test_judge_normal_150(load_normal_player):
 
 def test_judge_normal_300(load_normal_player):
     result = pytest.normal_player.player_judge_pass(300, 3)
-    assert result == True
+    assert result == False
 
 def test_judge_normal_350(load_normal_player):
-    result = pytest.normal_player.player_judge_pass(350, 3)
+    result = pytest.normal_player.player_judge_pass(350, 4)
     assert result == True
 
 def test_judge_normal_400(load_normal_player):
-    result = pytest.normal_player.player_judge_pass(350, 3)
+    result = pytest.normal_player.player_judge_pass(400, 3)
+    assert result == True
+
+def test_judge_normal_550(load_normal_player):
+    result = pytest.normal_player.player_judge_pass(550, 2)
+    assert result == True
+
+def test_judge_normal_550_One(load_normal_player):
+    result = pytest.normal_player.player_judge_pass(550, 1)
+    assert result == False
+
+def test_judge_normal_900(load_normal_player):
+    result = pytest.normal_player.player_judge_pass(900, 2)
+    assert result == True
+
+def test_judge_normal_900(load_normal_player):
+    result = pytest.normal_player.player_judge_pass(1100, 1)
     assert result == True
