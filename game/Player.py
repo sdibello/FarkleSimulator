@@ -29,6 +29,9 @@ class Player:
 
     def player_judge_accept_passed(self, score, available_dice):
         for b in self.passToBrackets:
-            if score >= b.low_score and available_dice >= b.available_dice:
-                return True
+            if score >= b.low_score and score <= b.high_score:
+                if available_dice >= b.available_dice:
+                    print("judge accept passed True")
+                    return True
+        print("judge accept passed False")
         return False

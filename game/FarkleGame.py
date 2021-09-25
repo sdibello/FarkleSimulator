@@ -24,10 +24,33 @@ class FarkleGame:
         steve.passToBrackets.append(two)
         steve.passToBrackets.append(three)
         steve.passToBrackets.append(four)
-        steve.passToBrackets = paul.passToBrackets
-        steve.passToBrackets = jerry.passToBrackets
-        steve.passToBrackets = tina.passToBrackets
 
+        lone = score_bracket(250,350,4)
+        ltwo = score_bracket(400,500,3)
+        lthree = score_bracket(550,850,2)
+        lfour = score_bracket(900,99999,1)
+        paul.passToBrackets.append(lone)
+        paul.passToBrackets.append(ltwo)
+        paul.passToBrackets.append(lthree)
+        paul.passToBrackets.append(lfour)
+
+        pone = score_bracket(250,350,4)
+        ptwo = score_bracket(400,500,3)
+        pthree = score_bracket(550,850,2)
+        pfour = score_bracket(900,99999,1)
+        jerry.passToBrackets.append(pone)
+        jerry.passToBrackets.append(ptwo)
+        jerry.passToBrackets.append(pthree)
+        jerry.passToBrackets.append(pfour)
+
+        jone = score_bracket(250,350,4)
+        jtwo = score_bracket(400,500,3)
+        jthree = score_bracket(550,850,2)
+        jfour = score_bracket(900,99999,1)
+        tina.passToBrackets.append(jone)
+        tina.passToBrackets.append(jtwo)
+        tina.passToBrackets.append(jthree)
+        tina.passToBrackets.append(jfour)
 
         self.players.append(steve)
         self.players.append(paul)
