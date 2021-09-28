@@ -72,19 +72,11 @@ class Player:
             else:
                 #Player score roll-up , dice remaining, score pass-along
                 player_turn_score = player_turn_score + roll_score
-                print("-- Score total-{0} turn total-{1} player total-{2} on {3}".format(str(roll_score), str(player_turn_score), str(self.score), str(activeRolls[1])))
+                print("-- Score total {0} turn {1} player {2} on {3}".format(str(roll_score), str(player_turn_score), str(self.score), str(activeRolls[1])))
                 passedScore = player_turn_score
                 passedDice = len(activeRolls[2])
                 if passedDice == 0:
                     passedDice = 5
-            #TODO MVP Notes
-            # 1. decide to keep passed or reset
-            # 2. roll & Score ( return all possible score iterations)
-            # 3. farkle detection
-            # 4. decide which score to keep
-            # 5. decide pass / reroll - loop at #2
-            # 6. log score
-            # 7. pass
             
             # figure out how to store so I can run AI on it.
             # End Game - relist players once someone has decided to end the game
@@ -101,7 +93,7 @@ class Player:
             elif passedDice < self.OutPassDiceLimit:
                 reRollFlag = False
                 self.score = self.score + player_turn_score
-                print("> score " + str(player_turn_score) + " for a total of " + str(self.score))
+                print(">>>> score " + str(player_turn_score) + " for a total of " + str(self.score))
             elif passedDice >= self.OutPassDiceLimit:
                 reRollFlag = True
             else:
