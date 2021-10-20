@@ -5,9 +5,25 @@ from dice import dice
 from score import scoreCalculate
 
 
-def test_just_dice():
+def test_just_five_dice():
     ds = dice.rollDice(5)
     assert len(ds) > 0
+
+def test_just_four_dice():
+    ds = dice.rollDice(4)
+    assert len(ds) == 4
+
+def test_just_three_dice():
+    ds = dice.rollDice(3)
+    assert len(ds) == 3
+
+def test_just_two_dice():
+    ds = dice.rollDice(2)
+    assert len(ds) == 2
+
+def test_just_one_dice():
+    ds = dice.rollDice(1)
+    assert len(ds) == 1
 
 #calcualte sets of 3
 def test_calculate_score_three_sixes_plus():

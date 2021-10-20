@@ -8,7 +8,6 @@ import sys
 def gameloop(game):
     #main game loop
     passedScore = 0
-    passedDice = []
     turnRolls = []
     player_turn_score = 0
     passedDice = 5
