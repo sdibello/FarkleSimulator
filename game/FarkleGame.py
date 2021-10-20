@@ -39,6 +39,15 @@ class FarkleGame:
             print("{0} has {1} ".format(p.name, p.score))
         print(" ----------------------------------- ".format(self.rounds))
 
+    def print_statistics(self):
+        #creating a new list here, to maintain the order of players in the original list.
+        newlist = sorted(self.players, key=lambda x: x.score, reverse=True)
+        print(" ----------- Stats ------------- ".format(self.rounds))
+        for p in newlist:
+            print("{0} has {1} - {2} farkles, - {3} Big Fat Farkles ".format(p.name, p.score, p.FarkleCount, p.BFFarkleCount))
+        print(" -------------------------------- ".format(self.rounds))
+
+
     def players_turn(self, player, in_score, in_available_dice, debug_flag):
         player_turn_score = 0
         diceToRoll = in_available_dice
