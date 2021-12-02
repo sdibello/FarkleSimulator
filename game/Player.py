@@ -41,8 +41,7 @@ class Player:
         reRollFlag = True
         print("turn for " + self.name + " < passed " + str(passedDice) + "-" + str(passed_score)  )
         
-        acceptPassedFlag = self.player_judge_accept_passed(passed_score, passedDice)
-        if acceptPassedFlag == True:
+        if self.player_judge_accept_passed(passed_score, passedDice) == True:
             player_turn_score = passed_score
         else:
             player_turn_score = 0
