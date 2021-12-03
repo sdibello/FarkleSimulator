@@ -5,7 +5,7 @@ class Scores:
     THREE_ONES = 1000
     STRAIGHT = 1500
     ONE = 100
-    FIVE = 50
+    FIVE = 50    
 
 # straight
 # count sets
@@ -60,41 +60,23 @@ def count_repeats(rolls):
         if y == 1:
             if seen[y] == 3:
                 dicescore = Scores.THREE_ONES
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
+                scored_dice.append(remaining_dice.pop([1,1,1]))
                 points = dicescore
             elif seen[y] == 4:
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
+                scored_dice.append(remaining_dice.pop([1,1,1,1]))
                 points = Scores.THREE_ONES * 2
             elif seen[y] == 5: 
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(1)))
+                scored_dice.append(remaining_dice.pop([1,1,1,1,1]))
                 points = ((Scores.THREE_ONES*2)*2)
         else:
             if seen[y] == 3:
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
+                scored_dice.append(remaining_dice.pop([y,y,y]))
                 points = y*100
             elif seen[y] == 4:
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
+                scored_dice.append(remaining_dice.pop([y,y,y,y]))
                 points = (y*100)*2
             elif seen[y] == 5:
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
-                scored_dice.append(remaining_dice.pop(remaining_dice.index(y)))
+                scored_dice.append(remaining_dice.pop([y,y,y,y,y]))
                 points = ((y*100)*2)*2
 
     return points, scored_dice, remaining_dice 

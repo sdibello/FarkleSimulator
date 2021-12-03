@@ -138,8 +138,8 @@ def test_calculate_score_1():
     assert score == (100, [1], [])
 
 def test_calculate_score_1_1():
-    score = scoreCalculate.calcScore([1,1])
-    assert score == (200, [1, 1], [])
+    score = scoreCalculate.calcScore([1,1,2,3,4])
+    assert score == (200, [1, 1], [2,3,4])
 
 def test_calculate_score_1_5():
     score = scoreCalculate.calcScore([1,5])
